@@ -5,6 +5,7 @@
 - [Python 包与缓存规范](rules/python-package.md)
 - [数据库结构同步规范](rules/database-schema.md)
 - [需求开发整理规范](rules/需求开发整理.md)
+- [进行中计划规范](rules/进行中计划.md)
 
 通用要求：
 

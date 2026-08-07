@@ -1,0 +1,8 @@
+[
+  {
+    "path": "/",
+    "label": "测试页面",
+    "navigation": true,
+    "page": "test"
+  }
+]

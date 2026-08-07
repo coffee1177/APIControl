@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+backend/.venv/
+**/.venv/
+
+# Frontend
+node_modules/
+fronted/node_modules/
+**/node_modules/
+dist/
+*.tsbuildinfo
+
+# Test caches
+.pytest_cache/
+
+# Local runtime data
+*.db
+*.sqlite
+*.sqlite3
+.env
+.env.local
