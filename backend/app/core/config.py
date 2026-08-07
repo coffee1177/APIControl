@@ -18,6 +18,10 @@ class Settings:
         ).split(",")
         if origin.strip()
     )
+    database_url: str = os.getenv(
+        "DATABASE_URL",
+        "sqlite:///./data/apicontrol.db",
+    )
 
 
 settings = Settings()
