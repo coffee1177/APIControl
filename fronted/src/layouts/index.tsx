@@ -1,28 +1,22 @@
 import React from "react";
 import {
   HomeOutlined,
-  LaptopOutlined,
-  NotificationOutlined,
-  UserOutlined,
 } from "@ant-design/icons";
 import type { MenuProps } from "antd";
-import { Breadcrumb, ConfigProvider, Layout, Menu, theme } from "antd";
+import { ConfigProvider, Layout, Menu, theme } from "antd";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import routes from "../router/routes.json";
 
 const { Header, Content, Sider } = Layout;
 
-const items1: MenuProps["items"] = ["1", "2", "3"].map((key) => ({
-  key,
-  label: `nav ${key}`,
-}));
+// const items1: MenuProps["items"] = ["1", "2", "3"].map((key) => ({
+//   key,
+//   label: `nav ${key}`,
+// }));
 
 const iconRegistry = {
   home: HomeOutlined,
-  UserOutlined,
-  LaptopOutlined,
-  NotificationOutlined,
 };
 
 type IconName = keyof typeof iconRegistry;
