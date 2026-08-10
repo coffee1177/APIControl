@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title description">
+  <title id="title">OPCProduct Logo</title>
+  <desc id="description">蓝色圆环包围一片向上生长的薄荷绿叶片</desc>
+  <rect width="64" height="64" rx="16" fill="#EFF6FF"/>
+  <path d="M45.5 32A13.5 13.5 0 1 1 32 18.5" fill="none" stroke="#2563EB" stroke-width="7" stroke-linecap="round"/>
+  <path d="M33 27C34.4 20.7 39.2 16.3 46 16c-.1 6.8-4.6 11.6-11 13" fill="#6EE7B7"/>
+  <path d="M31.5 34c2.9-5.6 7.2-9.8 13-13" fill="none" stroke="#2563EB" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="32" cy="32" r="3.5" fill="#2563EB"/>
+</svg>

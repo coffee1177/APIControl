@@ -1,8 +1,8 @@
 [
   {
-    "path": "/",
-    "label": "测试页面",
-    "navigation": true,
-    "page": "test"
+    "key": "/",
+    "icon": "home",
+    "label": "首页",
+    "page":"home"
   }
 ]
