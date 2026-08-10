@@ -106,10 +106,6 @@
   background: transparent;
 }
 
-.web-retention-category-nav .ant-tree-indent-unit {
-  width: 0;
-}
-
 .web-retention-category-nav .ant-tree-treenode {
   max-width: 100%;
   min-height: 34px;

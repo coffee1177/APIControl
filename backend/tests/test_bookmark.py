@@ -126,5 +126,19 @@ def test_bookmark_pagination_and_filter(client: TestClient) -> None:
     filtered = client.get(f"/web/list?categoryId={root['id']}")
     assert filtered.status_code == 200
     filtered_data = filtered.json()
-    assert filtered_data["total"] == 1
-    assert filtered_data["items"][0]["title"] == "SQLAlchemy"
+    assert filtered_data["total"] == 2
+    assert {item["title"] for item in filtered_data["items"]} == {
+        "SQLAlchemy",
+        "Python",
+    }
+
+    child_filtered = client.get(f"/web/list?categoryId={child['id']}")
+    assert child_filtered.status_code == 200
+    child_filtered_data = child_filtered.json()
+    assert child_filtered_data["total"] == 1
+    assert child_filtered_data["items"][0]["title"] == "Python"
+
+    for bookmark in client.get("/web/list?isAll=true").json()["items"]:
+        assert client.delete(f"/web/list/{bookmark['id']}").status_code == 204
+    assert client.delete(f"/web/categories/{child['id']}").status_code == 204
+    assert client.delete(f"/web/categories/{root['id']}").status_code == 204

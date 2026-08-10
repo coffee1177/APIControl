@@ -2,8 +2,8 @@ from fastapi import HTTPException
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
+from app.api.web.categories.service import get_category_or_404, get_descendants
 from app.api.web.list.schemas import BookmarkPage, BookmarkRead
-from app.api.web.categories.service import get_category_or_404
 from app.db.models import Category, WebList
 
 
@@ -64,8 +64,14 @@ def list_bookmarks(
             statement = statement.where(WebList.categoryId.is_(None))
             count_statement = count_statement.where(WebList.categoryId.is_(None))
         else:
-            statement = statement.where(WebList.categoryId == category_id)
-            count_statement = count_statement.where(WebList.categoryId == category_id)
+            category_ids = [
+                category_id,
+                *(category.id for category in get_descendants(db, category_id)),
+            ]
+            statement = statement.where(WebList.categoryId.in_(category_ids))
+            count_statement = count_statement.where(
+                WebList.categoryId.in_(category_ids)
+            )
 
     total = db.scalar(count_statement) or 0
     rows = db.execute(
