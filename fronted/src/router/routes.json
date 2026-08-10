@@ -3,6 +3,12 @@
     "key": "/",
     "icon": "home",
     "label": "首页",
-    "page":"home"
+    "page": "home"
+  },
+  {
+    "key": "/web",
+    "icon": "link",
+    "label": "网址库",
+    "page": "webRetention"
   }
 ]

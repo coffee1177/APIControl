@@ -4,10 +4,12 @@ import routes from "./routes.json";
 import { ManagementLayout } from "../layouts";
 import { Home } from "../pages/Home";
 import { TestPage } from "../pages/TestPage";
+import { WebRetention } from "../pages/WebRetention";
 
 const pageRegistry: Record<string, ReactNode> = {
   home: <Home />,
   test: <TestPage />,
+  webRetention: <WebRetention />,
 };
 
 interface RouteConfig {
