@@ -7,6 +7,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.api.destroy.router import router as destroy_router
 from app.api.health.router import router as health_router
 from app.api.web.categories.router import router as web_categories_router
+from app.api.web.list.router import router as web_list_router
 from app.core.config import settings
 from app.db.init_db import init_database
 
@@ -37,4 +38,6 @@ app.add_middleware(
 
 app.include_router(health_router)
 app.include_router(destroy_router)
+
+app.include_router(web_list_router)
 app.include_router(web_categories_router)

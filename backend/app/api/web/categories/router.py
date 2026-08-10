@@ -15,7 +15,7 @@ from app.api.web.categories.service import (
     get_category_or_404,
     validate_move,
 )
-from app.db.models import Category
+from app.db.models import Category, WebList
 from app.db.session import get_db
 
 router = APIRouter(prefix="/web/categories", tags=["web"])
@@ -101,6 +101,11 @@ def delete_category(category_id: int, db: Session = Depends(get_db)) -> Response
     )
     if has_children is not None:
         raise HTTPException(status_code=409, detail="分类下存在子分类，不能删除")
+    has_bookmarks = db.scalar(
+        select(WebList.id).where(WebList.categoryId == category.id).limit(1)
+    )
+    if has_bookmarks is not None:
+        raise HTTPException(status_code=409, detail="分类下存在网址，不能删除")
 
     db.delete(category)
     db.commit()
